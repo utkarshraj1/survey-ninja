@@ -11,6 +11,7 @@ import { ViewResponsesComponent } from './components/view-responses/view-respons
 import { GiveResponseComponent } from './components/give-response/give-response.component';
 import { FeedbackComponent } from './shared/components/feedback/feedback.component';
 import { ThanksComponent } from './shared/components/thanks/thanks.component';
+import { MaterialItemsModule } from './material-items.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ThanksComponent } from './shared/components/thanks/thanks.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialItemsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
