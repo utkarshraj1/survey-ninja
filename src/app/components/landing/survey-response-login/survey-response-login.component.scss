@@ -1,0 +1,16 @@
+.content-action-items {
+    display: flex;
+    justify-content: space-evenly;
+}
+.take-survey-card {
+    display: flex;
+    flex-direction: column;
+}
+.button-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+.button {
+    margin: 0;
+}

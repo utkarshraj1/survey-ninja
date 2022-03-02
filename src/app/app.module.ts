@@ -11,7 +11,13 @@ import { ViewResponsesComponent } from './components/view-responses/view-respons
 import { GiveResponseComponent } from './components/give-response/give-response.component';
 import { FeedbackComponent } from './shared/components/feedback/feedback.component';
 import { ThanksComponent } from './shared/components/thanks/thanks.component';
-import { MaterialItemsModule } from './material-items.module';
+import { MaterialItemsModule } from './material-ui/material-items.module';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SurveyLoginComponent } from './components/landing/survey-login/survey-login.component';
+import { SurveyResponseLoginComponent } from './components/landing/survey-response-login/survey-response-login.component';
+import { QuestionnaireListComponent } from './components/create-survey/questionnaire-list/questionnaire-list.component';
+import { CreateQuestionnaireComponent } from './components/create-survey/create-questionnaire/create-questionnaire.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +27,20 @@ import { MaterialItemsModule } from './material-items.module';
     ViewResponsesComponent,
     GiveResponseComponent,
     FeedbackComponent,
-    ThanksComponent
+    ThanksComponent,
+    HeaderComponent,
+    SurveyLoginComponent,
+    SurveyResponseLoginComponent,
+    QuestionnaireListComponent,
+    CreateQuestionnaireComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialItemsModule
   ],
   providers: [],

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  firstTime: boolean;
 
-  ngOnInit(): void {
+  constructor() {
   }
 
+  ngOnInit(): void {
+    this.firstTime = true;
+    // this.firstTime = false;
+  }
+
+  changeCardHandler(action: string): void {
+    switch (action) {
+      case 'surveyCreated':
+        this.firstTime = false;
+        break;
+      case 'createSurvey':
+        this.firstTime = true;
+        break;
+    }
+  }
 }

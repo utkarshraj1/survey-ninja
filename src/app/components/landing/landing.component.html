@@ -1,1 +1,18 @@
-<p>landing works!</p>
+<div class="card-container">
+    <mat-card class="example-card">
+        <mat-card-title>Survey Ninja</mat-card-title>
+        <mat-card-subtitle>Create surveys like never before.</mat-card-subtitle>
+        <mat-card-content *ngIf="firstTime">
+            <app-survey-response-login></app-survey-response-login>
+        </mat-card-content>
+        <mat-card-content *ngIf="!firstTime">
+            <app-survey-login></app-survey-login>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-footer class="footer-action-items">
+            <button mat-button (click)="changeCardHandler(firstTime ? 'surveyCreated' : 'createSurvey')">
+                {{ firstTime ? 'Already created a survey?' : 'Yet to create a survey?' }}
+            </button>
+        </mat-card-footer>
+    </mat-card>
+</div>

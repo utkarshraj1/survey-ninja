@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Create Questionnaire</h2>
+<mat-dialog-content>
+    <!--To add stepper here for questionnaire-->
+    <!-- <div class="create-survey">
+    <mat-card class="card">
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        <mat-card-content>
+            <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Ques</mat-label>
+                <input [(ngModel)]="question" type="text" required matInput #input placeholder="Ex. MnYsmsSWPE">
+            </mat-form-field>
+            <ng-container *ngIf="question!==null && question!==''">
+                <label id="example-radio-group-label">Pick Response Type</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" [(ngModel)]="responseTypeSelected"
+                    (ngModelChange)="responseTypeChangeHandler()" class="example-radio-group"
+                    *ngFor="let responseType of responseTypes">
+                    <mat-radio-button class="example-radio-button" [value]="responseType">
+                        {{responseType}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </ng-container>
+            <ng-container>
+                <ng-template *ngTemplateOutlet="radioResponses"></ng-template>
+            </ng-container>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<ng-template #radioResponses>
+    <label id="example-radio-group-label">Pick Response Type</label>
+    <mat-radio-group aria-labelledby="example-radio-group-label" [(ngModel)]="responseTypeSelected"
+        (ngModelChange)="responseTypeChangeHandler()" class="example-radio-group"
+        *ngFor="let responseType of responseTypes">
+        <mat-radio-button class="example-radio-button" [value]="responseType">
+            {{responseType}}
+        </mat-radio-button>
+    </mat-radio-group>
+</ng-template> -->
+    <p>Content</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" (click)="saveQuestionnaire()" [mat-dialog-close]="true"
+        cdkFocusInitial>Create</button>
+</mat-dialog-actions>

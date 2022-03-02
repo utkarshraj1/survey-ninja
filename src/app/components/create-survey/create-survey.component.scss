@@ -1,0 +1,25 @@
+.create-survey {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card {
+  width: 400px;
+}
+.form-field {
+  width: 400px;
+}
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+} 
+.example-radio-button {
+  margin: 5px;
+}
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
