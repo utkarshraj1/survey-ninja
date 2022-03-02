@@ -12,6 +12,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
 
 const MaterialItems = [
     MatToolbarModule,
@@ -24,7 +25,8 @@ const MaterialItems = [
     MatRadioModule,
     MatStepperModule,
     MatTreeModule,
-    MatDialogModule
+    MatDialogModule,
+    MatChipsModule
 ];
 
 @NgModule({

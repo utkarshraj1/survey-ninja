@@ -1,43 +1,60 @@
 <h2 mat-dialog-title>Create Questionnaire</h2>
 <mat-dialog-content>
-    <!--To add stepper here for questionnaire-->
-    <!-- <div class="create-survey">
-    <mat-card class="card">
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        <mat-card-content>
-            <mat-form-field appearance="fill" class="form-field">
+    <mat-stepper orientation="vertical" [linear]="true" #stepper>
+        <mat-step>
+            <ng-template matStepLabel>Enter the Question</ng-template>
+            <mat-form-field appearance="fill">
                 <mat-label>Ques</mat-label>
-                <input [(ngModel)]="question" type="text" required matInput #input placeholder="Ex. MnYsmsSWPE">
+                <input type="text" matInput placeholder="Put ? at the end" [(ngModel)]="questionData" required>
             </mat-form-field>
-            <ng-container *ngIf="question!==null && question!==''">
+            <div>
+                <button mat-stroked-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Enter response type</ng-template>
+            <div class="response-types">
                 <label id="example-radio-group-label">Pick Response Type</label>
                 <mat-radio-group aria-labelledby="example-radio-group-label" [(ngModel)]="responseTypeSelected"
-                    (ngModelChange)="responseTypeChangeHandler()" class="example-radio-group"
-                    *ngFor="let responseType of responseTypes">
+                    class="example-radio-group" *ngFor="let responseType of responseTypes">
                     <mat-radio-button class="example-radio-button" [value]="responseType">
                         {{responseType}}
                     </mat-radio-button>
                 </mat-radio-group>
+            </div>
+            <div>
+                <button mat-stroked-button matStepperPrevious class="back-button">Back</button>
+                <button mat-stroked-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>{{responseTypeSelected !== 'Input-Box' ? 'Enter Responses' : 'Done'}}
+            </ng-template>
+            <ng-container *ngIf="responseTypeSelected !== 'Input-Box'">
+                <mat-form-field class="example-chip-list" appearance="fill">
+                    <mat-label>Response</mat-label>
+                    <mat-chip-list #chipList aria-label="Responses">
+                        <mat-chip *ngFor="let res of responsesData" (removed)="remove(res)">
+                            {{res}}
+                            <button matChipRemove>
+                                <mat-icon>cancel</mat-icon>
+                            </button>
+                        </mat-chip>
+                        <input placeholder="Hit enter to register a response" [matChipInputFor]="chipList"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="add($event)" required>
+                    </mat-chip-list>
+                    <mat-hint>It's good to have atleast 4 options.</mat-hint>
+                </mat-form-field>
             </ng-container>
-            <ng-container>
-                <ng-template *ngTemplateOutlet="radioResponses"></ng-template>
+            <ng-container *ngIf="responseTypeSelected === 'Input-Box'">
+                <p>Done for the day.</p>
             </ng-container>
-        </mat-card-content>
-    </mat-card>
-</div>
-
-<ng-template #radioResponses>
-    <label id="example-radio-group-label">Pick Response Type</label>
-    <mat-radio-group aria-labelledby="example-radio-group-label" [(ngModel)]="responseTypeSelected"
-        (ngModelChange)="responseTypeChangeHandler()" class="example-radio-group"
-        *ngFor="let responseType of responseTypes">
-        <mat-radio-button class="example-radio-button" [value]="responseType">
-            {{responseType}}
-        </mat-radio-button>
-    </mat-radio-group>
-</ng-template> -->
-    <p>Content</p>
+            <div>
+                <button mat-stroked-button matStepperPrevious>Back</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-raised-button mat-dialog-close>Cancel</button>

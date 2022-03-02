@@ -2,6 +2,7 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { IQuestionnaire } from 'src/app/shared/models/Questionnaire';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-questionnaire-list',
@@ -14,15 +15,19 @@ export class QuestionnaireListComponent implements OnInit, OnChanges {
   dataSource = new MatTreeNestedDataSource<IQuestionnaire>();
   treeControl = new NestedTreeControl<IQuestionnaire>(node => node.children);
 
-  constructor() { }
+  constructor(private shared: SharedService) { }
 
   ngOnInit(): void {
+    this.shared.questionnaireData.subscribe(ques => {
+      this.questionnaires.push(ques);
+      this.dataSource.data = this.questionnaires;
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    setTimeout(() => {
-      this.dataSource.data = this.questionnaires;
-    }, 1000);
+    // setTimeout(() => {
+
+    // }, 1000);
   }
 
   hasChild = (_: number, node: IQuestionnaire) => !!node.children && node.children.length > 0;
