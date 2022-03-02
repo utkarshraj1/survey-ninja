@@ -2,7 +2,6 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { IQuestionnaire } from 'src/app/shared/models/Questionnaire';
-import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-questionnaire-list',
@@ -11,23 +10,18 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 })
 export class QuestionnaireListComponent implements OnInit, OnChanges {
 
-  @Input() questionnaires: Array<IQuestionnaire>;
+  @Input() questionnaires: Array<IQuestionnaire | any>;
   dataSource = new MatTreeNestedDataSource<IQuestionnaire>();
   treeControl = new NestedTreeControl<IQuestionnaire>(node => node.children);
 
-  constructor(private shared: SharedService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.shared.questionnaireData.subscribe(ques => {
-      this.questionnaires.push(ques);
-      this.dataSource.data = this.questionnaires;
-    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // setTimeout(() => {
-
-    // }, 1000);
+    // To check here why it is not getting data from the parent component
+    this.dataSource.data = this.questionnaires;
   }
 
   hasChild = (_: number, node: IQuestionnaire) => !!node.children && node.children.length > 0;

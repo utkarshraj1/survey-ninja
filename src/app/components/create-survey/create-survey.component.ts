@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IQuestionnaire } from 'src/app/shared/models/Questionnaire';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateQuestionnaireComponent } from './create-questionnaire/create-questionnaire.component';
+import { SharedService } from 'src/app/shared/services/shared.service';
 @Component({
   selector: 'app-create-survey',
   templateUrl: './create-survey.component.html',
@@ -10,9 +11,13 @@ import { CreateQuestionnaireComponent } from './create-questionnaire/create-ques
 export class CreateSurveyComponent implements OnInit {
   questionnaires: Array<IQuestionnaire> = [];
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog,
+    private shared: SharedService) { }
 
   ngOnInit(): void {
+    this.shared.questionnaireData.subscribe(ques => {
+      this.questionnaires.push(ques);
+    })
   }
 
   openQuestionnaireDialog(): void {

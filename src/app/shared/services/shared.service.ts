@@ -7,7 +7,7 @@ import { IQuestionnaire } from '../models/Questionnaire';
 })
 export class SharedService {
 
-  questionnaireData: Subject<IQuestionnaire> = new Subject<IQuestionnaire>()
+  questionnaireData = new Subject<IQuestionnaire>();
 
   constructor() { }
 }
