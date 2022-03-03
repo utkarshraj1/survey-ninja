@@ -1,0 +1,28 @@
+<mat-card class="text-start mb-1" *ngFor="let formCon of formControlDataArray; index as i">
+    <ng-container *ngIf="formCon.responseType==='Input-Box'">
+        <p>{{i+1 + '.)' + ' ' + formCon.ques}}</p>
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label>Input</mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-hint>Be polite.</mat-hint>
+            </mat-form-field>
+        </p>
+    </ng-container>
+    <ng-container *ngIf="formCon.responseType==='Select'">
+        <p>{{i+1 + '.)' + ' ' + formCon.ques}}</p>
+        <section class="example-section">
+            <p *ngFor="let select of formCon.options">
+                <mat-checkbox>{{select}}</mat-checkbox>
+            </p>
+        </section>
+    </ng-container>
+    <ng-container *ngIf="formCon.responseType==='Radio'">
+        <p>{{i+1 + '.)' + ' ' + formCon.ques}}</p>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+            <mat-radio-button class="example-radio-button" *ngFor="let radio of formCon.options" [value]="radio">
+                {{radio}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </ng-container>
+</mat-card>

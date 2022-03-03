@@ -16,6 +16,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const MaterialItems = [
     MatToolbarModule,
@@ -32,7 +33,8 @@ const MaterialItems = [
     MatChipsModule,
     MatGridListModule,
     ClipboardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCheckboxModule
 ];
 
 @NgModule({

@@ -1,1 +1,42 @@
-<p>give-response works!</p>
+<div class="d-flex justify-content-center">
+    <div class="w-50 text-center">
+        <mat-toolbar class="justify-content-center">
+            <span>Give survey</span>
+        </mat-toolbar>
+        <mat-card class="my-card">
+            <mat-card-content>
+                <ng-template *ngTemplateOutlet="!userDataReceived ? userDetailForm : surveyQues">
+                </ng-template>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<ng-template #userDetailForm>
+    <form [formGroup]="userFormGroup" (ngSubmit)="submitFormData(userFormGroup)">
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" formControlName="name">
+                <mat-icon matSuffix>badge</mat-icon>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Ex. email@email.com" formControlName="email">
+                <mat-icon matSuffix>badge</mat-icon>
+            </mat-form-field>
+        </p>
+        <button mat-raised-button color="primary" type="submit" [disabled]="userDataReceived ? true : false">
+            Start the survey
+        </button>
+    </form>
+</ng-template>
+
+<ng-template #surveyQues>
+    <div>
+        <app-survey-form [formControlDataArray]="formCreationArray">
+        </app-survey-form>
+    </div>
+</ng-template>

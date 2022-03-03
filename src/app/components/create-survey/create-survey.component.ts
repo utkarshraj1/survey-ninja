@@ -53,7 +53,7 @@ export class CreateSurveyComponent implements OnInit {
       email: this.email,
       questionnaires: this.questionnaires
     };
-    this.httpService.postData(api_url.create_survey, data).subscribe(res => {
+    this.httpService.postData(`${api_url.create_survey}.json`, data).subscribe(res => {
       this.key = res.name.slice(1);
       this.statusOk = true;
     },

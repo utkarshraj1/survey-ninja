@@ -18,6 +18,7 @@ import { SurveyLoginComponent } from './components/landing/survey-login/survey-l
 import { SurveyResponseLoginComponent } from './components/landing/survey-response-login/survey-response-login.component';
 import { QuestionnaireListComponent } from './components/create-survey/questionnaire-list/questionnaire-list.component';
 import { CreateQuestionnaireComponent } from './components/create-survey/create-questionnaire/create-questionnaire.component';
+import { SurveyFormComponent } from './components/give-response/survey-form/survey-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CreateQuestionnaireComponent } from './components/create-survey/create-
     SurveyLoginComponent,
     SurveyResponseLoginComponent,
     QuestionnaireListComponent,
-    CreateQuestionnaireComponent
+    CreateQuestionnaireComponent,
+    SurveyFormComponent
   ],
   imports: [
     BrowserModule,
