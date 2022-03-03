@@ -1,22 +1,30 @@
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
-    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-        {{node.name}}
-    </mat-tree-node>
-    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
-        <div class="mat-tree-node">
-            <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-                <mat-icon class="mat-icon-rtl-mirror">
-                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                </mat-icon>
-            </button>
+<ng-container *ngIf="questionnaires.length===0">
+    <div class="image-container">
+        <img src="../../../assets/no-items-found.png" class="no-items-image" alt="no items found" />
+        <p style="margin-top: 5px;">Box is empty</p>
+    </div>
+</ng-container>
+<ng-container *ngIf="questionnaires.length!==0">
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
             {{node.name}}
-            <button [ngStyle]="{'display': !node.name.includes('Response') ? 'block' : 'none'}" mat-icon-button
-                (click)="deleteQuestion(node.name)">
-                <mat-icon>delete_forever</mat-icon>
-            </button>
-        </div>
-        <div [class.example-tree-invisible]="!treeControl.isExpanded(node)" role="group">
-            <ng-container matTreeNodeOutlet></ng-container>
-        </div>
-    </mat-nested-tree-node>
-</mat-tree>
+        </mat-tree-node>
+        <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+            <div class="mat-tree-node">
+                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                    <mat-icon class="mat-icon-rtl-mirror">
+                        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                    </mat-icon>
+                </button>
+                {{node.name}}
+                <button [ngStyle]="{'display': !node.name.includes('Response') ? 'block' : 'none'}" mat-icon-button
+                    (click)="deleteQuestion(node.name)">
+                    <mat-icon>delete_forever</mat-icon>
+                </button>
+            </div>
+            <div [class.example-tree-invisible]="!treeControl.isExpanded(node)" role="group">
+                <ng-container matTreeNodeOutlet></ng-container>
+            </div>
+        </mat-nested-tree-node>
+    </mat-tree>
+</ng-container>

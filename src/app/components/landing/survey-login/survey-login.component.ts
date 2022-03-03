@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-survey-login',
@@ -8,11 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./survey-login.component.scss']
 })
 export class SurveyLoginComponent implements OnInit {
-
-  // emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   surveyLoginForm: FormGroup;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private shared: SharedService) { }
 
   ngOnInit(): void {
     this.surveyLoginForm = new FormGroup({
@@ -22,8 +22,9 @@ export class SurveyLoginComponent implements OnInit {
   }
 
   submitLoginData(): void {
-    console.log(this.surveyLoginForm);
+    // console.log(this.surveyLoginForm);
     const { email, key } = this.surveyLoginForm.value;
+    this.shared.viewSurveyData.next({ email: email.toString(), key: key.toString() });
     this.router.navigate([`/view-survey/${key}`]);
   }
 

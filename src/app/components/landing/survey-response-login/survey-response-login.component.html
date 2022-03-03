@@ -2,11 +2,13 @@
     Survey Ninja is a onestop place for creating surveys without imposing any credential authentication.
 </p>
 <mat-card-actions class="content-action-items">
-    <ng-template *ngTemplateOutlet="!takeSurveyClicked ? buttons : takeSurvey"></ng-template>
+    <ng-template
+        *ngTemplateOutlet="!takeSurveyClicked && !createSurveyClicked ? buttons : takeSurveyClicked ? takeSurvey : createSurvey">
+    </ng-template>
 </mat-card-actions>
 
 <ng-template #buttons>
-    <button mat-raised-button (click)="navigateToPage('create')">
+    <button mat-raised-button (click)="createSurveyClicked = !createSurveyClicked">
         Create New Survey
     </button>
     <button mat-raised-button (click)="takeSurveyClicked = !takeSurveyClicked">
@@ -25,5 +27,19 @@
                 (click)="navigateToPage('response', key)">Enter</button>
             <button mat-raised-button (click)="takeSurveyClicked = !takeSurveyClicked">Go Back</button>
         </div>
+    </div>
+</ng-template>
+
+<ng-template #createSurvey>
+    <div style="text-align: center;">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input required type="email" [(ngModel)]="email" style="width: 100%;" matInput #input
+                placeholder="Ex. email@email.com">
+        </mat-form-field>
+        <button mat-stroked-button color="primary" [disabled]="email.includes('@') && email.length>5 ? false : true"
+            (click)="navigateToPage('create')">
+            Create Survey
+        </button>
     </div>
 </ng-template>

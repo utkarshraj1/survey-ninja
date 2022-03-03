@@ -1,26 +1,43 @@
-<div class="create-survey">
+<div class="d-flex flex-column align-items-center create-survey">
     <mat-card class="card">
         <mat-card-title>Questionnaires</mat-card-title>
         <mat-card-subtitle>Make your own choices.</mat-card-subtitle>
         <mat-divider [inset]="true"></mat-divider>
-        <mat-card-actions style="text-align: center;">
-            <button mat-stroked-button color="primary" (click)="openQuestionnaireDialog()">
-                Add a Questionnaire
-            </button>
-        </mat-card-actions>
-        <mat-card-content>
-            <!--If questionnaires are empty-->
-            <ng-container *ngIf="questionnaires.length===0">
-                <div class="image-container">
-                    <img src="../../../assets/no-items-found.png" class="no-items-image" alt="no items found" />
-                    <p>Uh Oh! No questionnaires created.</p>
-                </div>
-            </ng-container>
-            <!--If questionnaires are not empty-->
-            <ng-container *ngIf="questionnaires.length!==0">
-                <app-questionnaire-list [questionnaires]="questionnaires">
-                </app-questionnaire-list>
-            </ng-container>
-        </mat-card-content>
+        <ng-template *ngTemplateOutlet="!createSurveyClicked ? addQues : createdSurvey">
+        </ng-template>
     </mat-card>
 </div>
+
+<ng-template #addQues>
+    <mat-card-actions style="text-align: center;" *ngIf="!statusOk || !createSurveyClicked">
+        <button mat-stroked-button color="primary" (click)="openQuestionnaireDialog()">
+            Add a Questionnaire
+        </button>
+    </mat-card-actions>
+    <mat-card-content>
+        <app-questionnaire-list (quesDataArray)="quesDataFiller($event)">
+        </app-questionnaire-list>
+    </mat-card-content>
+    <mat-card-footer *ngIf="questionnaires.length!==0" class="text-center mb-1">
+        <button mat-raised-button color="primary" (click)="saveQuestionnaire()">
+            Create the Survey
+        </button>
+    </mat-card-footer>
+</ng-template>
+
+<ng-template #createdSurvey>
+    <mat-card-content>
+        <div class="text-center" style="margin-top: 10px;" *ngIf="!statusOk">
+            <img src="../../../assets/swords-loading.png" class="loading-image" alt="loading" />
+        </div>
+        <div *ngIf="statusOk">
+            <div>Survey Created, share this key.</div>
+            <mat-card class="d-flex justify-content-between shared-key-show">
+                <div class="d-flex align-items-center">Key: {{key}}</div>
+                <button mat-icon-button [cdkCopyToClipboard]="key" (click)="copiedSuccessfully()">
+                    <mat-icon>share</mat-icon>
+                </button>
+            </mat-card>
+        </div>
+    </mat-card-content>
+</ng-template>

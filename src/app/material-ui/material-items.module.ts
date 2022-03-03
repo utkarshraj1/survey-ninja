@@ -13,6 +13,9 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const MaterialItems = [
     MatToolbarModule,
@@ -26,7 +29,10 @@ const MaterialItems = [
     MatStepperModule,
     MatTreeModule,
     MatDialogModule,
-    MatChipsModule
+    MatChipsModule,
+    MatGridListModule,
+    ClipboardModule,
+    MatSnackBarModule
 ];
 
 @NgModule({

@@ -7,10 +7,10 @@ import { ViewResponsesComponent } from './components/view-responses/view-respons
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: 'create-survey', component: CreateSurveyComponent },
+  { path: 'create-survey/:email', component: CreateSurveyComponent },
   { path: 'survey/:id', component: GiveResponseComponent },
   { path: 'view-survey/:id', component: ViewResponsesComponent },
-  { path: '**', component: LandingComponent }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

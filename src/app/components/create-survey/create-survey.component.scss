@@ -1,29 +1,26 @@
 .create-survey {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-bottom: 10px;
 }
 .card {
   width: 400px;
 }
-.form-field {
-  width: 400px;
+.loading-image {
+  width: 100px;
+  height: 100px;
+  animation: loading 2s infinite linear;
 }
-.example-radio-group {
-  display: flex;
-  flex-direction: column;
-  margin: 15px 0;
-  align-items: flex-start;
-} 
-.example-radio-button {
-  margin: 5px;
+.shared-key-show {
+  margin-top: 10px;
 }
-.image-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.no-items-image {
-  max-width: 300px;
-  max-height: 250px;
+
+@keyframes loading {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

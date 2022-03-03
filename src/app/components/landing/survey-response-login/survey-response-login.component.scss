@@ -1,6 +1,6 @@
 .content-action-items {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-evenly;   
 }
 .take-survey-card {
     display: flex;
@@ -13,4 +13,8 @@
 }
 .button {
     margin: 0;
+}
+.action-button-items {
+    display: flex;
+    justify-content: space-evenly;
 }
