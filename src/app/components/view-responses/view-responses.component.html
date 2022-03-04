@@ -1,1 +1,30 @@
-<p>view-responses works!</p>
+<div class="d-flex justify-content-center">
+    <div class="w-50 text-center">
+        <mat-toolbar class="justify-content-center">
+            <span>Responses</span>
+        </mat-toolbar>
+        <mat-card class="my-card">
+            <mat-card-content>
+                <mat-card-subtitle>Key: {{key}}</mat-card-subtitle>
+                <ng-template
+                    *ngTemplateOutlet="loadingContinues ? loading : responseValues.length!==0 ? table : noItems">
+                </ng-template>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="mainPageNavHandler()">Go back to main page</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+
+<ng-template #loading>
+    <app-loading-page></app-loading-page>
+</ng-template>
+
+<ng-template #noItems>
+    <app-no-items-found></app-no-items-found>
+</ng-template>
+
+<ng-template #table>
+    <app-data-table [responseValues]="responseValues"></app-data-table>
+</ng-template>
