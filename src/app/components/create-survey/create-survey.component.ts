@@ -7,6 +7,7 @@ import { api_url } from 'src/app/shared/static/api-urls';
 import { HttpMethodsService } from 'src/app/shared/services/http-methods.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-create-survey',
   templateUrl: './create-survey.component.html',
@@ -24,7 +25,7 @@ export class CreateSurveyComponent implements OnInit {
     private route: ActivatedRoute,
     private httpService: HttpMethodsService,
     private snackBar: MatSnackBar,
-    private shared: SharedService) { }
+    private shared: SharedService, private navRoute: Router) { }
 
   ngOnInit(): void {
     this.questionnaires = [];
@@ -65,6 +66,10 @@ export class CreateSurveyComponent implements OnInit {
     this.snackBar.open('Key copied successfully!', 'Close', {
       duration: 2000
     });
+  }
+
+  mainPageNavHandler(): void {
+    this.navRoute.navigateByUrl(environment.url);
   }
 
 }

@@ -4,23 +4,6 @@
 .card {
   width: 400px;
 }
-.loading-image {
-  width: 100px;
-  height: 100px;
-  animation: loading 2s infinite linear;
-}
 .shared-key-show {
   margin-top: 10px;
-}
-
-@keyframes loading {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }

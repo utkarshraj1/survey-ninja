@@ -1,21 +1,4 @@
-.loading-image {
-    width: 100px;
-    height: 100px;
-    animation: loading 2s infinite linear;
-}
 .done-image {
   width: 100px;
     height: 100px;
-}
-
-@keyframes loading {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
 }

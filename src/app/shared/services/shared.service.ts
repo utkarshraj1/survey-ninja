@@ -10,7 +10,6 @@ export class SharedService {
 
   questionnaireData = new Subject<IQuestionnaire>();
   createSurveyEmail = new Subject<string>();
-  viewSurveyData = new Subject<IViewSurvey>();
 
   constructor() { }
 }

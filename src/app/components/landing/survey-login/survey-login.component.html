@@ -13,5 +13,12 @@
             Input is not valid.
         </mat-error>
     </mat-form-field>
-    <button mat-raised-button type="submit" [disabled]="!surveyLoginForm.valid">Enter</button>
+    <mat-card-actions class="text-center">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!surveyLoginForm.valid">Enter</button>
+    </mat-card-actions>
 </form>
+<mat-error class="mt-2 mb-2 text-center"
+    *ngIf="credentialValidity.loginClicked && credentialValidity.emailInValid || credentialValidity.keyInValid">
+    Something is not right, I think {{credentialValidity.emailInValid ? 'Email' : credentialValidity.keyInValid ?
+    'Key' : 'something'}} is not right.
+</mat-error>

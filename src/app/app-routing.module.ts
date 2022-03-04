@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'create-survey/:email', component: CreateSurveyComponent },
   { path: 'survey/:id', component: GiveResponseComponent },
-  { path: 'view-survey/:id', component: ViewResponsesComponent },
+  { path: 'view-survey/:email/:id', component: ViewResponsesComponent },
   { path: '**', redirectTo: '' }
 ];
 

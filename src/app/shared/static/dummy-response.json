@@ -1,81 +1,24 @@
 {
-    "email": "uraj.utkarsh2014@gmail.com",
-    "questionnaires": [
+    "email": "utkarsh.raj@outlook.com",
+    "key": "MxE22osKQMhcQ9Qgb0m",
+    "name": "Utkarsh Raj",
+    "response": [
         {
-            "children": [
-                {
-                    "children": [
-                        {
-                            "name": "Input-Box"
-                        }
-                    ],
-                    "name": "Response Type"
-                }
-            ],
-            "name": "What is your name?"
+            "ques": "What is your name?",
+            "responses": "Utkarsh"
         },
         {
-            "children": [
-                {
-                    "children": [
-                        {
-                            "name": "Radio"
-                        }
-                    ],
-                    "name": "Response Type"
-                },
-                {
-                    "children": [
-                        {
-                            "name": "2019"
-                        },
-                        {
-                            "name": "2020"
-                        },
-                        {
-                            "name": "2021"
-                        },
-                        {
-                            "name": "2022"
-                        }
-                    ],
-                    "name": "Response Options"
-                }
-            ],
-            "name": "In which year you started your career?"
+            "ques": "In which year you started your career?",
+            "responses": "2020"
         },
         {
-            "children": [
-                {
-                    "children": [
-                        {
-                            "name": "Select"
-                        }
-                    ],
-                    "name": "Response Type"
-                },
-                {
-                    "children": [
-                        {
-                            "name": "Angular"
-                        },
-                        {
-                            "name": "React"
-                        },
-                        {
-                            "name": "Vue"
-                        },
-                        {
-                            "name": "jQuery"
-                        },
-                        {
-                            "name": ".NET"
-                        }
-                    ],
-                    "name": "Response Options"
-                }
-            ],
-            "name": "What all technologies you know?"
+            "ques": "What all technologies you know?",
+            "responses": [
+                "Angular",
+                "React",
+                "jQuery",
+                ".NET"
+            ]
         }
     ]
 }

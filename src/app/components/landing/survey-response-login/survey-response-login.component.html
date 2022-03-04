@@ -3,15 +3,15 @@
 </p>
 <mat-card-actions class="content-action-items">
     <ng-template
-        *ngTemplateOutlet="!takeSurveyClicked && !createSurveyClicked ? buttons : takeSurveyClicked ? takeSurvey : createSurvey">
+        *ngTemplateOutlet="!takeSurveyClicked && !createSurveyClicked && goToMainPage ? buttons : takeSurveyClicked ? takeSurvey : createSurvey">
     </ng-template>
 </mat-card-actions>
 
 <ng-template #buttons>
-    <button mat-raised-button (click)="createSurveyClicked = !createSurveyClicked">
+    <button mat-raised-button color="primary" (click)="goBackClicked('createsurvey')">
         Create New Survey
     </button>
-    <button mat-raised-button (click)="takeSurveyClicked = !takeSurveyClicked">
+    <button mat-raised-button color="primary" (click)="goBackClicked('takesurvey')">
         Take the survey quiz
     </button>
 </ng-template>
@@ -23,23 +23,28 @@
             <input type="text" required [(ngModel)]="key" matInput #input placeholder="Ex. MnYsmsSWPE">
         </mat-form-field>
         <div class="button-controls">
-            <button class="button" [disabled]="key===null || key==='' ? true : false" mat-raised-button
+            <button color="primary" class="button" [disabled]="key===null || key==='' ? true : false" mat-raised-button
                 (click)="navigateToPage('response', key)">Enter</button>
-            <button mat-raised-button (click)="takeSurveyClicked = !takeSurveyClicked">Go Back</button>
+            <button mat-raised-button (click)="goBackClicked('goBack')">Go Back</button>
         </div>
     </div>
 </ng-template>
 
 <ng-template #createSurvey>
-    <div style="text-align: center;">
+    <div class="d-flex flex-column">
         <mat-form-field>
             <mat-label>Email</mat-label>
             <input required type="email" [(ngModel)]="email" style="width: 100%;" matInput #input
                 placeholder="Ex. email@email.com">
         </mat-form-field>
-        <button mat-stroked-button color="primary" [disabled]="email.includes('@') && email.length>5 ? false : true"
-            (click)="navigateToPage('create')">
-            Create Survey
-        </button>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" [disabled]="email.includes('@') && email.length>5 ? false : true"
+                (click)="navigateToPage('create')">
+                Create Survey
+            </button>
+            <button mat-stroked-button color="primary" (click)="goBackClicked('goBack')">
+                Want to submit responses?
+            </button>
+        </mat-card-actions>
     </div>
 </ng-template>

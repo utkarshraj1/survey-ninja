@@ -27,9 +27,9 @@
 
 <ng-template #createdSurvey>
     <mat-card-content>
-        <div class="text-center" style="margin-top: 10px;" *ngIf="!statusOk">
-            <img src="../../../assets/swords-loading.png" class="loading-image" alt="loading" />
-        </div>
+        <ng-container *ngIf="!statusOk">
+            <app-loading-page></app-loading-page>
+        </ng-container>
         <div *ngIf="statusOk">
             <div>Survey Created, share this key.</div>
             <mat-card class="d-flex justify-content-between shared-key-show">
@@ -40,4 +40,7 @@
             </mat-card>
         </div>
     </mat-card-content>
+    <mat-card-actions class="text-center">
+        <button mat-raised-button color="primary" (click)="mainPageNavHandler()">Go back to main page</button>
+    </mat-card-actions>
 </ng-template>

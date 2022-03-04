@@ -9,9 +9,9 @@
                 </ng-template>
             </mat-card-content>
             <mat-card-content *ngIf="dataPosted.postRequestSent">
-                <div class="text-center" *ngIf="!dataPosted.responseFromAPIGot">
-                    <img src="../../../assets/swords-loading.png" alt="loading" class="loading-image" />
-                </div>
+                <ng-container *ngIf="!dataPosted.responseFromAPIGot">
+                    <app-loading-page></app-loading-page>
+                </ng-container>
                 <div class="text-center" *ngIf="dataPosted.responseFromAPIGot">
                     <img src="../../../assets/done.png" alt="done" class="done-image" />
                     <p>Response sent, now sit back and relax.</p>

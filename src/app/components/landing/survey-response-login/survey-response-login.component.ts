@@ -11,6 +11,7 @@ export class SurveyResponseLoginComponent implements OnInit {
 
   takeSurveyClicked: boolean;
   createSurveyClicked: boolean;
+  goToMainPage: boolean;
   key: string;
   email: string;
 
@@ -19,6 +20,7 @@ export class SurveyResponseLoginComponent implements OnInit {
   ngOnInit(): void {
     this.takeSurveyClicked = false;
     this.createSurveyClicked = false;
+    this.goToMainPage = true;
     this.key = '';
     this.email = '';
   }
@@ -30,6 +32,26 @@ export class SurveyResponseLoginComponent implements OnInit {
         break;
       case 'response':
         this.router.navigate([`/survey/${key}`]);
+        break;
+    }
+  }
+
+  goBackClicked(from: string): void {
+    switch (from) {
+      case 'goBack':
+        this.goToMainPage = true;
+        this.takeSurveyClicked = false;
+        this.createSurveyClicked = false;
+        break;
+      case 'createsurvey':
+        this.goToMainPage = false;
+        this.takeSurveyClicked = false;
+        this.createSurveyClicked = true;
+        break;
+      case 'takesurvey':
+        this.goToMainPage = false;
+        this.takeSurveyClicked = true;
+        this.createSurveyClicked = false;
         break;
     }
   }

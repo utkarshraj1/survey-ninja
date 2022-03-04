@@ -19,6 +19,11 @@ import { SurveyResponseLoginComponent } from './components/landing/survey-respon
 import { QuestionnaireListComponent } from './components/create-survey/questionnaire-list/questionnaire-list.component';
 import { CreateQuestionnaireComponent } from './components/create-survey/create-questionnaire/create-questionnaire.component';
 import { SurveyFormComponent } from './components/give-response/survey-form/survey-form.component';
+import { LoadingPageComponent } from './shared/components/loading-page/loading-page.component';
+import { CommonModule } from '@angular/common';
+import { NoItemsFoundComponent } from './shared/components/no-items-found/no-items-found.component';
+import { DataTableComponent } from './components/view-responses/data-table/data-table.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,10 +39,15 @@ import { SurveyFormComponent } from './components/give-response/survey-form/surv
     SurveyResponseLoginComponent,
     QuestionnaireListComponent,
     CreateQuestionnaireComponent,
-    SurveyFormComponent
+    SurveyFormComponent,
+    LoadingPageComponent,
+    NoItemsFoundComponent,
+    DataTableComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,

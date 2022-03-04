@@ -1,8 +1,5 @@
 <ng-container *ngIf="questionnaires.length===0">
-    <div class="image-container">
-        <img src="../../../assets/no-items-found.png" class="no-items-image" alt="no items found" />
-        <p style="margin-top: 5px;">Box is empty</p>
-    </div>
+    <app-no-items-found></app-no-items-found>
 </ng-container>
 <ng-container *ngIf="questionnaires.length!==0">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
