@@ -9,8 +9,6 @@ import { LandingComponent } from './components/landing/landing.component';
 import { CreateSurveyComponent } from './components/create-survey/create-survey.component';
 import { ViewResponsesComponent } from './components/view-responses/view-responses.component';
 import { GiveResponseComponent } from './components/give-response/give-response.component';
-import { FeedbackComponent } from './shared/components/feedback/feedback.component';
-import { ThanksComponent } from './shared/components/thanks/thanks.component';
 import { MaterialItemsModule } from './material-ui/material-items.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,8 +29,6 @@ import { DataTableComponent } from './components/view-responses/data-table/data-
     CreateSurveyComponent,
     ViewResponsesComponent,
     GiveResponseComponent,
-    FeedbackComponent,
-    ThanksComponent,
     HeaderComponent,
     SurveyLoginComponent,
     SurveyResponseLoginComponent,
