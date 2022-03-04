@@ -23,7 +23,6 @@ import { LoadingPageComponent } from './shared/components/loading-page/loading-p
 import { CommonModule } from '@angular/common';
 import { NoItemsFoundComponent } from './shared/components/no-items-found/no-items-found.component';
 import { DataTableComponent } from './components/view-responses/data-table/data-table.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +41,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     SurveyFormComponent,
     LoadingPageComponent,
     NoItemsFoundComponent,
-    DataTableComponent,
-    FooterComponent
+    DataTableComponent
   ],
   imports: [
     BrowserModule,
