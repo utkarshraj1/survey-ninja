@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpMethodsService } from 'src/app/shared/services/http-methods.service';
 import { api_url } from 'src/app/shared/static/api-urls';
 import { ISurveyForm } from 'src/app/shared/models/SurveyForm';
 import { IUSerDetails } from 'src/app/shared/models/UserDetails';
 import { IQuestionnaire } from 'src/app/shared/models/Questionnaire';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ISurveyResponse } from 'src/app/shared/models/SurveyResponse';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-give-response',
@@ -19,14 +21,19 @@ export class GiveResponseComponent implements OnInit {
   surveyQuestionnaire: Array<any>;
   formCreationArray: ISurveyForm[];
   userDataReceived: boolean;
-
+  dataPosted: any;
   userFormGroup: FormGroup;
 
   constructor(private route: ActivatedRoute,
+    private navigateRoute: Router,
     private httpMethod: HttpMethodsService) { }
 
   ngOnInit(): void {
     this.userDataReceived = false;
+    this.dataPosted = {
+      postRequestSent: false,
+      responseFromAPIGot: false
+    };
     this.formCreationArray = [];
     this.userFormGroup = new FormGroup({
       'name': new FormControl(null, Validators.required),
@@ -65,6 +72,24 @@ export class GiveResponseComponent implements OnInit {
     else {
       this.userDataReceived = false;
     }
+  }
+
+  responseFormDataOutputHandler(data: ISurveyResponse[]): void {
+    this.dataPosted.postRequestSent = true;
+    this.httpMethod.postData(`${api_url.post_responses}.json`, {
+      ...this.userData,
+      response: data,
+      key: this.key
+    }).subscribe((res) => {
+      console.log(res);
+      setTimeout(() => {
+        this.dataPosted.responseFromAPIGot = true;
+      }, 1000);
+    });
+  }
+
+  redirectToMainPageHandler(): void {
+    this.navigateRoute.navigateByUrl(environment.url);
   }
 
 }
