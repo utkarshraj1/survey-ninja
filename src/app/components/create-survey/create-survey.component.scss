@@ -7,3 +7,9 @@
 .shared-key-show {
   margin-top: 10px;
 }
+
+@media (max-width: 414px) {
+  .card {
+    width: 350px;
+  }
+}

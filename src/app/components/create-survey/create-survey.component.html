@@ -9,7 +9,7 @@
 </div>
 
 <ng-template #addQues>
-    <mat-card-actions style="text-align: center;" *ngIf="!statusOk || !createSurveyClicked">
+    <mat-card-actions class="text-center" *ngIf="!statusOk || !createSurveyClicked">
         <button mat-stroked-button color="primary" (click)="openQuestionnaireDialog()">
             Add a Questionnaire
         </button>

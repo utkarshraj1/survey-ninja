@@ -15,8 +15,8 @@
                 <div class="text-center" *ngIf="dataPosted.responseFromAPIGot">
                     <img src="../../../assets/done.png" alt="done" class="done-image" />
                     <p>Response sent, now sit back and relax.</p>
-                    <button mat-raised-button color="primary" class="mt-2" (click)="redirectToMainPageHandler()">Go to
-                        Main Page
+                    <button mat-raised-button color="primary" class="mt-2" (click)="redirectToMainPageHandler()">
+                        Go to Main Page
                     </button>
                 </div>
             </mat-card-content>
@@ -27,16 +27,16 @@
 <ng-template #userDetailForm>
     <form [formGroup]="userFormGroup" (ngSubmit)="submitFormData(userFormGroup)">
         <p>
-            <mat-form-field appearance="outline">
+            <mat-form-field class="form-field" appearance="outline">
                 <mat-label>Name</mat-label>
-                <input matInput placeholder="Name" formControlName="name">
+                <input class="input" matInput placeholder="Name" formControlName="name">
                 <mat-icon matSuffix>badge</mat-icon>
             </mat-form-field>
         </p>
         <p>
-            <mat-form-field appearance="outline">
+            <mat-form-field class="form-field" appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput placeholder="Ex. email@email.com" formControlName="email">
+                <input class="input" matInput placeholder="Ex. email@email.com" formControlName="email">
                 <mat-icon matSuffix>badge</mat-icon>
             </mat-form-field>
         </p>

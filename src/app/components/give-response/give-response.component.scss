@@ -1,4 +1,16 @@
 .done-image {
   width: 100px;
-    height: 100px;
+  height: 100px;
+}
+.input {
+  min-width: 40px;
+}
+
+@media (max-width: 418px) {
+  .form-field {
+    width: 162px;
+  }
+  .mat-card {
+    padding: 16px 0px 16px;
+  }
 }
